@@ -59,25 +59,21 @@ public class MainATMIntegrationTest {
 
     @Test
     void testCustomerDisplayBalance() {
-        String simulatedInput = "admin\n0000\n1\nJohn Doe\n1000.0\nactive\njohndoe\n4321\n6\n";
-        String simulatedInput2 = "johndoe\n4321\n4\n";
-        System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
+        String simulatedInput2 = "johndoe\n4321\n4\n5\n";
         System.setIn(new ByteArrayInputStream(simulatedInput2.getBytes()));
         assertDoesNotThrow(() -> MainATM.main(new String[]{}));
     }
 
     @Test
     void testCustomerWithdrawAmount() {
-        String simulatedInput = "admin\n0000\n1\nJohn Doe\n1000.0\nactive\njohndoe\n4321\n6\n" +
-                                "johndoe\n4321\n1\n100\n5\n";
+        String simulatedInput = "johndoe\n4321\n1\n100\n5\n";
         System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
         assertDoesNotThrow(() -> MainATM.main(new String[]{}));
     }
 
     @Test
     void testCustomerDepositCash() {
-        String simulatedInput = "admin\n0000\n1\nJohn Doe\n1000.0\nactive\njohndoe\n4321\n6\n" +
-                                "johndoe\n4321\n3\n200\n5\n";
+        String simulatedInput = "johndoe\n4321\n3\n200\n5\n";
         System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
         assertDoesNotThrow(() -> MainATM.main(new String[]{}));
     }
