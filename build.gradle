@@ -13,6 +13,7 @@ repositories {
 
 checkstyle {
     toolVersion = '10.3'
+    configFile = file("${rootDir}/config/checkstyle/checkstyle.xml")
 }
 
 tasks.withType(Checkstyle) {
