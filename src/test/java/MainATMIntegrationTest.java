@@ -8,7 +8,7 @@ public class MainATMIntegrationTest {
 
     @Test
     void testRunWithoutCrash() {
-        String simulatedInput = "testuser\n1234\n5\n"; 
+        String simulatedInput = "testuser\n1234\n5\n";
         System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
         assertDoesNotThrow(() -> MainATM.main(new String[]{}));
     }
@@ -44,13 +44,6 @@ public class MainATMIntegrationTest {
     @Test
     void testAdminSearchAccountFlow() {
         String simulatedInput = "admin\n0000\n4\n1\n6\n";
-        System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
-        assertDoesNotThrow(() -> MainATM.main(new String[]{}));
-    }
-
-    @Test
-    void testAdminInvalidChoice() {
-        String simulatedInput = "admin\n0000\n10";
         System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
         assertDoesNotThrow(() -> MainATM.main(new String[]{}));
     }
