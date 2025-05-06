@@ -23,7 +23,7 @@ jobs:
         run: ./gradlew clean build jacocoTestReport
 
       - name: Upload test report artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3.1.3
         with:
           name: test-report
           path: build/reports/tests/test/index.html
