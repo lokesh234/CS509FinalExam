@@ -21,6 +21,34 @@ public class MainATMIntegrationTest {
     }
 
     @Test
+    void testAdminCreateAccountFlow() {
+        String simulatedInput = "admin\n0000\n1\nJohn Doe\n1000.0\nactive\njohndoe\n4321\n6\n";
+        System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
+        assertDoesNotThrow(() -> MainATM.main(new String[]{}));
+    }
+
+    @Test
+    void testAdminDeleteAccountFlow() {
+        String simulatedInput = "admin\n0000\n2\n1\n6\n"; // admin login → delete account #1 → exit
+        System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
+        assertDoesNotThrow(() -> MainATM.main(new String[]{}));
+    }
+
+    @Test
+    void testAdminUpdateAccountFlow() {
+        String simulatedInput = "admin\n0000\n3\n1\nUpdated Name\nactive\n6\n";
+        System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
+        assertDoesNotThrow(() -> MainATM.main(new String[]{}));
+    }
+
+    @Test
+    void testAdminSearchAccountFlow() {
+        String simulatedInput = "admin\n0000\n4\n1\n6\n";
+        System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
+        assertDoesNotThrow(() -> MainATM.main(new String[]{}));
+    }
+
+    @Test
     void testCustomerExitWithoutCrash() {
         String simulatedInput = "johndoe\n4321\n5\n"; // customer login, exit
         System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
