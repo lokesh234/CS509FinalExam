@@ -11,3 +11,5 @@ CREATE TABLE accounts (
                           pin INT
 );
 
+INSERT INTO accounts (holderName, balance, status, login, pin)
+VALUES ('Test User', 1000.0, 'active', 'testuser', 1234);
