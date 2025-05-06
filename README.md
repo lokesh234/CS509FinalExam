@@ -1,4 +1,4 @@
-# Final Exam 
+# Final Exam
 
 ## Code Coverage Badge
 

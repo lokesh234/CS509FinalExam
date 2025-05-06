@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'jacoco'
+    id 'checkstyle'
 }
 
 group 'groupId'
@@ -8,6 +9,17 @@ version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+}
+
+checkstyle {
+    toolVersion = '10.3'
+}
+
+tasks.withType(Checkstyle) {
+    reports {
+        xml.required = false
+        html.required = true
+    }
 }
 
 dependencies {
