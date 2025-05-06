@@ -22,6 +22,12 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew clean build jacocoTestReport
 
+      - name: Upload test report artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-report
+          path: build/reports/tests/test/index.html
+
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v5
         with:
